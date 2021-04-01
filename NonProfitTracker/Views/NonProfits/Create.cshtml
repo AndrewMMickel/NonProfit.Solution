@@ -1,0 +1,16 @@
+
+@{
+  Layout = "_Layout";
+}
+
+@model NonProfitTracker.Models.NonProfit
+
+<h2>Add a new Non Profit</h2>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)<br>
+
+    <input class="button" type="submit" value="Add new Non Profit" />
+}
+<p>@Html.ActionLink("Show all Collections", "Index")</p>

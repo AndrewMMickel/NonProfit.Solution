@@ -1,0 +1,13 @@
+@{
+    Layout = "_Layout";
+}
+
+@model NonProfitTracker.Models.BoardMember
+
+<h2>Board Member Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<p>@Html.DisplayNameFor(model => model.Age): @Html.DisplayFor(model => model.Age)</p>
+<p>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Delete Board Member", "Delete", new { id = Model.Id })</p>

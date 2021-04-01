@@ -1,0 +1,18 @@
+@{
+    Layout = "_Layout";
+}
+
+@using NonProfitTracker.Models;
+
+<h2>Non Profit Tracker</h2>
+@if (Model.Count == 0)
+{
+    <h3>No Non Profits have been added yet!</h3>
+}
+
+@foreach (NonProfit nonProfit in Model)
+{
+    <li>@Html.ActionLink($"{ nonProfit.Name }", "Details", new { id = nonProfit.Id })</li>
+}
+
+<p>@Html.ActionLink("Add new Non Profit", "Create")</p>
