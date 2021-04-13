@@ -8,5 +8,10 @@ namespace NonProfitTracker.Models
         public virtual DbSet<BoardMember> BoardMembers { get; set; }
 
         public NonProfitTrackerContext(DbContextOptions options) : base(options) { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+        }
     }
 }

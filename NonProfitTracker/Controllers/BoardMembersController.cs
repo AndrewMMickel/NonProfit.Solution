@@ -44,7 +44,8 @@ namespace NonProfitTracker.Controllers
 
         public ActionResult Edit(int id)
         {
-            BoardMember thisBoardMember = _db.BoardMembers.Include(BoardMember => BoardMember.NonProfit).FirstOrDefault(BoardMember => BoardMember.BoardMemberId == id);
+            BoardMember thisBoardMember = _db.BoardMembers.FirstOrDefault(BoardMember => BoardMember.BoardMemberId == id);
+            ViewBag.CategoryId = new SelectList(_db.BoardMembers, "CategoryId", "Name");
             return View(thisBoardMember);
         }
         [HttpPost]
