@@ -1,26 +1,20 @@
-# Animal Shelter Web Interface
+# Non Profit Organizer
 
-#### Homework practice Assignment during Epicodus Coding School, ASP.NET Core MVC Web Interfaces, 12.22.2020
+#### Non Profit Organizer practice 4/13/21
 
-#### By Bess Campbell & Danielle Thompson
+#### By Andrew Mickel
 
 ## Description
 
-This is a program for an animal shelter to track the animals in their facility based on animal type (such as cat or dog). It includes features that let a shelter worker:
+This is a program for tracking board members of non-profit organizations. It includes features that let a worker:
 
-  - Add types of animals to the system. 
-      - type should be a column on the animals table. 
-      * A type could be a cat, dog, bunny or any other animal.
-  - Add an animal to the system with ... 
+  - Add names of Organizations. 
+      - type should be a column on the NonProfits table. 
+  - Add an individual to the system with ... 
       - name, 
-      - gender, 
-      - date of admittance, and 
-      - breed. 
-      * added as a particular type.
-  - List animals by breed or type alphabetically.
-  - List animals starting with the ones who have been in the shelter the longest.
+      - description, 
+      - and age.
 
-For Date Of Admittance, put it in this format for it to display properly: 1/12/0001 12:00:00 AM
 
 ## Technologies used
 
