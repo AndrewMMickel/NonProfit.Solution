@@ -1,0 +1,22 @@
+@{
+    Layout = "_Layout";
+}
+
+@model NonProfitTracker.Models.NonProfit
+
+<h2>Edit</h2>
+
+<h4>Edit this task: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.NonProfitId)
+    @Html.DropDownList("NonProfitId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

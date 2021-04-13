@@ -1,8 +1,10 @@
 using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using NonProfitTracker.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace NonProfitTracker.Controllers
 {
@@ -36,21 +38,34 @@ namespace NonProfitTracker.Controllers
 
         public ActionResult Details(int id)
         {
-            BoardMember thisNonProfit = _db.BoardMembers.FirstOrDefault(boardMembers => boardMembers.Id == id);
-            return View(thisNonProfit);
+            BoardMember thisBoardMember = _db.BoardMembers.FirstOrDefault(boardMembers => boardMembers.BoardMemberId == id);
+            return View(thisBoardMember);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            BoardMember thisBoardMember = _db.BoardMembers.Include(BoardMember => BoardMember.NonProfit).FirstOrDefault(BoardMember => BoardMember.BoardMemberId == id);
+            return View(thisBoardMember);
+        }
+        [HttpPost]
+        public ActionResult Edit(BoardMember BoardMember)
+        {
+            _db.Entry(BoardMember).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
         {
-            var thisNonProfit = _db.BoardMembers.FirstOrDefault(boardMembers => boardMembers.Id == id);
-            return View(thisNonProfit);
+            BoardMember thisBoardMember = _db.BoardMembers.FirstOrDefault(boardMembers => boardMembers.BoardMemberId == id);
+            return View(thisBoardMember);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var thisNonProfit = _db.BoardMembers.FirstOrDefault(boardMember => boardMember.Id == id);
-            _db.BoardMembers.Remove(thisNonProfit);
+            var thisBoardMember = _db.BoardMembers.FirstOrDefault(boardMember => boardMember.BoardMemberId == id);
+            _db.BoardMembers.Remove(thisBoardMember);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

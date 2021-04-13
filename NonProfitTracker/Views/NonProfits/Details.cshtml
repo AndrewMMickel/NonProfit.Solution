@@ -1,6 +1,7 @@
-  
-
 @{
+
+
+
     Layout = "_Layout";
 }
 
@@ -9,5 +10,6 @@
 <h2>Non Profit Details</h2>
 <hr />
 <h3>@Html.ActionLink($"{ Model.Name }", "Index", "BoardMembers")</h3>
+<p>@Html.ActionLink("Edit NonProfit", "Edit", new { id = Model.NonProfitId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Delete Non Profit", "Delete", new { id = Model.Id })</p>
+<p>@Html.ActionLink("Delete Non Profit", "Delete", new { id = Model.NonProfitId })</p>
